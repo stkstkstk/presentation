@@ -1,0 +1,245 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    overflow: hidden;
+}
+
+.presentation {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 60px;
+    animation: slideIn 0.6s ease-out;
+}
+
+.slide.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Slide 1 - Title Slide */
+.title-slide {
+    background: 
+        linear-gradient(rgba(102, 126, 234, 0.4), rgba(118, 75, 162, 0.4)),
+        url('6077e5f3-9011-40a5-a44c-7718d1623b96.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Background patterns for slides - Much more transparent */
+.slide-bg-1 {
+    background: 
+        linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)),
+        url('e3358462-5e81-4e5f-a87a-d8c26e48e153.jfif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.slide-bg-2 {
+    background: 
+        linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)),
+        url('00b1ab22-9c76-40a2-bdbb-240dc3756e54.jfif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.slide-bg-3 {
+    background: 
+        linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)),
+        url('3944fc3d-732c-4e6c-b9a0-cc3b03b847a0.jfif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.title-slide h1 {
+    font-size: 4em;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    animation: fadeInUp 1s ease-out;
+}
+
+.title-slide .subtitle {
+    font-size: 2em;
+    margin-bottom: 20px;
+    opacity: 0.9;
+    animation: fadeInUp 1.2s ease-out;
+}
+
+.title-slide .emoji {
+    font-size: 5em;
+    margin-bottom: 30px;
+    animation: bounce 2s infinite;
+}
+
+/* Credits - Small and in the corner */
+.credits {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 0.8em;
+    opacity: 0.7;
+    text-align: left;
+    animation: fadeInUp 1.5s ease-out;
+}
+
+.credits .names {
+    font-size: 0.9em;
+    margin-top: 2px;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Regular Slides - Much more transparent backgrounds */
+.slide-header {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.85), rgba(118, 75, 162, 0.85));
+    color: white;
+    padding: 30px 40px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    backdrop-filter: blur(3px);
+}
+
+.slide-header h2 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.slide-header .slide-number {
+    font-size: 1.2em;
+    opacity: 0.9;
+}
+
+.slide-content {
+    flex: 1;
+    padding: 20px 40px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(3px);
+}
+
+.slide-content h3 {
+    color: #667eea;
+    font-size: 2em;
+    margin-bottom: 25px;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 15px;
+}
+
+.slide-content p {
+    font-size: 1.4em;
+    line-height: 1.8;
+    color: #333;
+    text-align: justify;
+}
+
+/* Navigation */
+.navigation {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    z-index: 1000;
+}
+
+.nav-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.nav-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.6);
+}
+
+.nav-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.slide-indicator {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 15px 25px;
+    border-radius: 50px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    font-size: 1.2em;
+    color: #667eea;
+    font-weight: bold;
+    backdrop-filter: blur(3px);
+}
+
+/* Print Styles */
+@media print {
+    .navigation, .slide-indicator {
+        display: none;
+    }
+    
+    .slide {
+        page-break-after: always;
+        display: flex !important;
+        position: relative;
+    }
+}
